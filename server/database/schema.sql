@@ -10,7 +10,7 @@ CREATE TABLE article (
   id INT PRIMARY KEY AUTO_INCREMENT,
   titre VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
-  date_publication DATE NOT NULL,
+  date_publication VARCHAR(30) NOT NULL,
   image_src VARCHAR(500),
   category_id INT,
   FOREIGN KEY (category_id) REFERENCES category(id)

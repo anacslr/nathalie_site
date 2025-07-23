@@ -17,7 +17,7 @@ class articleRepository {
   async create(article: Omit<ArticleType, "id">) {
     // Execute the SQL INSERT query to add a new article to the "article" table
     const [result] = await databaseClient.query<Result>(
-      "INSERT INTO article (titre, description,date_publication, image_src, category_id) VALUES (?, ?, ?, ?)",
+      "INSERT INTO article (titre, description,date_publication, image_src, category_id) VALUES (?, ?, ?, ?, ?)",
       [
         article.titre,
         article.description,
