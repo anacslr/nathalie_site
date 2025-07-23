@@ -13,6 +13,7 @@ router.get("/api/articles", articleActions.browse);
 router.get("/api/articles/:id", articleActions.read);
 router.post("/api/articles", articleActions.add);
 router.put("/api/articles/:id", articleActions.edit);
+router.delete("/api/articles/:id", articleActions.destroy);
 
 /* ************************************************************************* */
 

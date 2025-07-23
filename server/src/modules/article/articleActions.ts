@@ -91,4 +91,20 @@ const edit: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit };
+// The D of BREAD - Destroy (Delete) operation
+
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const articleId = Number(req.params.id);
+    const affectedRows = await articleRepository.delete(articleId);
+    if (affectedRows === 0) {
+      res.sendStatus(404); // Article not found
+    } else {
+      res.sendStatus(204); // Success
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit, destroy };
