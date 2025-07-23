@@ -13,5 +13,5 @@ CREATE TABLE article (
   date_publication DATE NOT NULL,
   image_src VARCHAR(500),
   category_id INT,
-  FOREIGN KEY (type_id) REFERENCES types(id)
+  FOREIGN KEY (category_id) REFERENCES types(id)
 );
