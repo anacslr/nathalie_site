@@ -7,7 +7,7 @@ type ArticleType = {
   titre: string;
   description: string;
   date_publication: Date;
-  image_src: string;
+  image_src?: string;
   category_id: number;
 };
 
@@ -53,11 +53,21 @@ class articleRepository {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing article
 
-  // async update(article: article) {
-  //   ...
-  // }
+  async update(article: ArticleType) {
+    const [result] = await databaseClient.query<Result>(
+      "UPDATE article SET titre = ?, description = ?, date_publication = ?, image_src = ?, category_id = ? WHERE id = ?",
+      [
+        article.titre,
+        article.description,
+        article.date_publication,
+        article.image_src,
+        article.category_id,
+        article.id,
+      ],
+    );
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an article by its ID

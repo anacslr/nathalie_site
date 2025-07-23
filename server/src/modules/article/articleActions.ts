@@ -1,5 +1,14 @@
 import type { RequestHandler } from "express";
 
+type ArticleType = {
+  id: number;
+  titre: string;
+  description: string;
+  date_publication: Date;
+  image_src?: string;
+  category_id: number;
+};
+
 // Import access to data
 import articleRepository from "./articleRepository";
 
@@ -60,4 +69,26 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+// The E of BREAD - Edit (Update) operation
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    const updatedArticle: ArticleType = {
+      id: Number(req.params.id),
+      titre: req.body.titre,
+      description: req.body.description,
+      date_publication: req.body.date_publication,
+      image_src: req.body.image_src,
+      category_id: req.body.category_id,
+    };
+    const affectedRows = await articleRepository.update(updatedArticle);
+    if (affectedRows === 0) {
+      res.sendStatus(404); // Aucun article modifié
+    } else {
+      res.sendStatus(204); // Succès
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit };
