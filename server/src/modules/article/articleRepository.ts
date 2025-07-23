@@ -70,11 +70,17 @@ class articleRepository {
   }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an article by its ID
 
-  // async delete(id: number) {
-  //   ...
-  // }
+  async delete(id: number) {
+    // Execute the SQL DELETE query to remove an article by its ID
+    const [result] = await databaseClient.query<Result>(
+      "DELETE FROM article WHERE id = ?",
+      [id],
+    );
+
+    // Return the number of affected rows (should be 1 if the article was deleted)
+    return result.affectedRows;
+  }
 }
 
 export default new articleRepository();
