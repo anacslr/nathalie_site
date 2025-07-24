@@ -50,7 +50,7 @@ class articleRepository {
     const [rows] = await databaseClient.query<Rows>(
       `SELECT article.*, category.name AS category_name
        FROM article
-       JOIN category ON article.category_id = category.id`,
+       JOIN category ON article.category_id = category.id ORDER BY id DESC`,
     );
     return rows as ArticleType[];
   }

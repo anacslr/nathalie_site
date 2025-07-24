@@ -45,20 +45,7 @@
   flex-direction: row;
   align-items: center;
 }
-.delete-button {
-  margin-top: 20%;
-  padding: 5px 10px;
-  font-size: .8rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(11px);
-}
-
+.delete-button,
 .edit-button {
   margin-top: 20%;
   padding: 5px 10px;
