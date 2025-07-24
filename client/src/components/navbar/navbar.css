@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: var(--primary);
+  border-bottom: var(--primary) solid 2px;
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
+.nav-item a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.nav-item .active {
+  text-decoration: underline;
+  font-weight: bold;
+}

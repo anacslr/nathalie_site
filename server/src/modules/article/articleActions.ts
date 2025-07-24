@@ -4,7 +4,7 @@ type ArticleType = {
   id: number;
   titre: string;
   description: string;
-  date_publication: Date;
+  date_publication: string;
   image_src?: string;
   category_id: number;
 };

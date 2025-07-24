@@ -1,5 +1,7 @@
 import "./landing.css";
 
+import { Link } from "react-router";
+
 function LandingPage() {
   return (
     <>
@@ -7,9 +9,11 @@ function LandingPage() {
       <div className="landing-page">
         <h1 className="landing-title">Nathalie Guy</h1>
         <p className="landing-subtitle">Artiste Aquarelliste</p>
-        <button className="landing-button" type="button">
-          Mes actualités
-        </button>
+        <Link to="/actualites">
+          <button className="landing-button" type="button">
+            Mes actualités
+          </button>
+        </Link>
       </div>
     </>
   );
