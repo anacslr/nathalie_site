@@ -1,10 +1,11 @@
+import ArticlesWrapper from "../../components/articles_wrapper/articles_wrapper";
 import "./news.css";
 
 function NewsPage() {
   return (
     <div>
-      <h1>News</h1>
-      <p>Latest news articles will be displayed here.</p>
+      <h1 className="news-title">Mes actualités</h1>
+      <ArticlesWrapper />
     </div>
   );
 }

@@ -6,7 +6,7 @@ type ArticleType = {
   id: number;
   titre: string;
   description: string;
-  date_publication: Date;
+  date_publication: string;
   image_src?: string;
   category_id: number;
 };
@@ -34,21 +34,24 @@ class articleRepository {
   // The Rs of CRUD - Read operations
 
   async read(id: number) {
-    // Execute the SQL SELECT query to retrieve a specific artcile by its ID
+    // Execute the SQL SELECT query to retrieve a specific article by its ID, with category name
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT * FROM article WHERE id = ?",
+      `SELECT article.*, category.name AS category_name
+       FROM article
+       JOIN category ON article.category_id = category.id
+       WHERE article.id = ?`,
       [id],
     );
-
-    // Return the first row of the result, which represents the article
     return rows[0] as ArticleType;
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all articles from the "article" table
-    const [rows] = await databaseClient.query<Rows>("SELECT * FROM article");
-
-    // Return the array of articles
+    // Execute the SQL SELECT query to retrieve all articles with their category name
+    const [rows] = await databaseClient.query<Rows>(
+      `SELECT article.*, category.name AS category_name
+       FROM article
+       JOIN category ON article.category_id = category.id`,
+    );
     return rows as ArticleType[];
   }
 
