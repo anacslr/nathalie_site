@@ -10,7 +10,7 @@ type ArticleType = {
   category_name: string;
 };
 
-function ArticlesWrapper() {
+function ArticlesWrapper({ isAdmin = false }: { isAdmin?: boolean }) {
   const [articles, setArticles] = useState<ArticleType[]>([]);
 
   useEffect(() => {
@@ -20,10 +20,23 @@ function ArticlesWrapper() {
       .catch((err) => console.error(err));
   }, []);
 
+  const handleDelete = (id: number) => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/articles/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) setArticles((prev) => prev.filter((a) => a.id !== id));
+    });
+  };
+
   return (
     <div>
       {articles.map((article) => (
-        <Article key={article.id} article={article} />
+        <Article
+          key={article.id}
+          article={article}
+          isAdmin={isAdmin}
+          handleDelete={handleDelete}
+        />
       ))}
     </div>
   );
