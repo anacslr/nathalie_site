@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router";
 
 import App from "./App";
 // Import the main components of your application
+import About from "./pages/about/about";
 import Admin from "./pages/admin/admin";
 import LandingPage from "./pages/landingPage/landing";
 import NewsPage from "./pages/news/news";
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/actualites", element: <NewsPage /> }, // Renders the NewsPage component
       { path: "/admin", element: <Admin /> }, // Renders the Admin component
+      { path: "/apropos", element: <About /> }, // Renders the About component
     ], // Renders the App component for all other paths
   },
 

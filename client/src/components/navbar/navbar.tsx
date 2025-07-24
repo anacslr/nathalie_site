@@ -14,6 +14,12 @@ function Navbar() {
           >
             Mes actualités
           </NavLink>
+          <NavLink
+            to="/apropos"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            À propos
+          </NavLink>
         </li>
       </ul>
     </nav>

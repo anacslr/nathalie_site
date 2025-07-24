@@ -104,7 +104,6 @@ function ArticleForm({ onSuccess, onCancel }: ArticleFormProps) {
         placeholder="Description"
         required
       />
-
       <div className="article-actions">
         <button type="submit" className="save-button" disabled={loading}>
           Ajouter
