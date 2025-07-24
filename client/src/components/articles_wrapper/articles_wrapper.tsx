@@ -8,6 +8,7 @@ type ArticleType = {
   date_publication: string;
   image_src?: string;
   category_name: string;
+  category_id: number;
 };
 
 function ArticlesWrapper({ isAdmin = false }: { isAdmin?: boolean }) {
@@ -28,6 +29,13 @@ function ArticlesWrapper({ isAdmin = false }: { isAdmin?: boolean }) {
     });
   };
 
+  // Fonction pour mettre à jour un article dans le state après édition
+  const handleUpdate = (updatedArticle: ArticleType) => {
+    setArticles((prev) =>
+      prev.map((a) => (a.id === updatedArticle.id ? updatedArticle : a)),
+    );
+  };
+
   return (
     <div>
       {articles.map((article) => (
@@ -36,6 +44,7 @@ function ArticlesWrapper({ isAdmin = false }: { isAdmin?: boolean }) {
           article={article}
           isAdmin={isAdmin}
           handleDelete={handleDelete}
+          handleUpdate={handleUpdate}
         />
       ))}
     </div>
