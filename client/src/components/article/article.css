@@ -1,5 +1,9 @@
 .article-item {
-  background-color: rgba(117, 159, 188, 0.6);
+  background-image: url(/images/BG/5587958.jpg);
+  background-color: rgba(117, 159, 188, 0.7);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 1rem 0;
   width: 80%;
   margin: 0 10% 2rem 10%;
