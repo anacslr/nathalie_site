@@ -1,0 +1,22 @@
+.works-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-align: center;
+  padding-top: 20px;
+}
+
+.works-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.works-page img {
+  max-width: 40%;
+  height: auto;
+  margin: .3rem;
+}

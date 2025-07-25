@@ -11,6 +11,7 @@ import About from "./pages/about/about";
 import Admin from "./pages/admin/admin";
 import LandingPage from "./pages/landingPage/landing";
 import NewsPage from "./pages/news/news";
+import Works from "./pages/works/works";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: "/actualites", element: <NewsPage /> }, // Renders the NewsPage component
       { path: "/admin", element: <Admin /> }, // Renders the Admin component
       { path: "/apropos", element: <About /> }, // Renders the About component
+      { path: "/mes-oeuvres", element: <Works /> }, // Renders the Works component
     ], // Renders the App component for all other paths
   },
 

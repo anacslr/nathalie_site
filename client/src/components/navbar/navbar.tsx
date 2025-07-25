@@ -37,6 +37,13 @@ function Navbar() {
             Mes actualités
           </NavLink>
           <NavLink
+            to="/mes-oeuvres"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={handleLinkClick}
+          >
+            Mes œuvres
+          </NavLink>
+          <NavLink
             to="/apropos"
             className={({ isActive }) => (isActive ? "active" : "")}
             onClick={handleLinkClick}

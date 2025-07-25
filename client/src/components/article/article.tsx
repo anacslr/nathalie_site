@@ -99,6 +99,13 @@ function Article({
             handleSave();
           }}
         >
+          <label htmlFor="image_src">Image URL</label>
+          <input
+            name="image_src"
+            value={form.image_src}
+            onChange={handleChange}
+            className="article-image"
+          />
           <label htmlFor="date_publication">Date de publication</label>
           <input
             name="date_publication"
@@ -119,6 +126,7 @@ function Article({
               </option>
             ))}
           </select>
+          <br />
           <label htmlFor="titre">Titre</label>
           <input
             name="titre"
@@ -133,15 +141,6 @@ function Article({
             onChange={handleChange}
             className="article-description"
           />
-
-          <label htmlFor="image_src">Image URL</label>
-          <input
-            name="image_src"
-            value={form.image_src}
-            onChange={handleChange}
-            className="article-image"
-          />
-
           <button type="submit" className="save-button">
             Enregistrer
           </button>
