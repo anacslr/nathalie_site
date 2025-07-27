@@ -32,7 +32,9 @@ function ArticleForm({ onSuccess, onCancel }: ArticleFormProps) {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/categories`)
       .then((res) => res.json())
-      .then((data) => setCategories(data))
+      .then((data) => {
+        setCategories(data);
+      })
       .catch(() => setCategories([]));
   }, []);
 
@@ -66,7 +68,7 @@ function ArticleForm({ onSuccess, onCancel }: ArticleFormProps) {
         value={form.image_src}
         onChange={handleChange}
         className="article-image"
-        placeholder="Image (nom ou URL)"
+        placeholder="Image (URL)"
       />
       <input
         name="date_publication"

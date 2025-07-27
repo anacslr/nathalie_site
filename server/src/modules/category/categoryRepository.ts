@@ -13,7 +13,7 @@ class categoryRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific article by its ID, with category name
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT name FROM category WHERE id = ?",
+      "SELECT id, name FROM category WHERE id = ?",
       [id],
     );
     return rows[0] as CategoryType;
@@ -22,7 +22,7 @@ class categoryRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all articles with their category name
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT name FROM category",
+      "SELECT id, name FROM category",
     );
     return rows as CategoryType[];
   }
